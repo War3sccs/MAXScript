@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+    <!--照片格式-->
+    <style>
+        #picture_1{
+            height: 800px;
+            width: 800px;
+        }
+        #picture_1 img{
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <a href="..\return.html" style="font-size: x-large;">return</a>
+    </p>
+   <h3><a href='.' >储存位置</a></h3>
+   <h3 id="address_content">L:\设计资料\软件使用技巧\3dsmax\标准教程\Maps</h3> 
+     <button id="button">点击复制储存位置地址</button>
+     <script>
+        (function(){
+            button.addEventListener('click', function(){
+                var copyDom = document.querySelector('#address_content');
+                //创建选中范围
+                var range = document.createRange();
+                range.selectNode(copyDom);
+                //移除剪切板中内容
+                window.getSelection().removeAllRanges();
+                //添加新的内容到剪切板
+                window.getSelection().addRange(range);
+                //复制
+                var successful = document.execCommand('copy');
+            })
+        })()
+    </script>
+
+</body>
+</html>
+    

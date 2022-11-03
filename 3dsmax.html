@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3dsmax</title>
+    <!--照片格式-->
+    <style>
+        #picture_1{
+            height: 800px;
+            width: 800px;
+        }
+        #picture_1 img{
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <a href="..\软件使用技巧.html" style="font-size: x-large;">返回软件使用技巧</a>
+    </p>
+   <h3><a href='.' >储存位置</a></h3>
+   <h3 id="address_content">L:\设计资料\软件使用技巧\3dsmax</h3> 
+     <button id="button">点击复制储存位置地址</button>
+     <script>
+        (function(){
+            button.addEventListener('click', function(){
+                var copyDom = document.querySelector('#address_content');
+                //创建选中范围
+                var range = document.createRange();
+                range.selectNode(copyDom);
+                //移除剪切板中内容
+                window.getSelection().removeAllRanges();
+                //添加新的内容到剪切板
+                window.getSelection().addRange(range);
+                //复制
+                var successful = document.execCommand('copy');
+            })
+        })()
+    </script>
+
+    <h2>官方资料</h2>
+    <h3>operate multiple object in MAXscript</h3>
+    <p>
+       <a href="https://polycount.com/discussion/168908/maxscript-applying-script-to-multiple-objects">说明链接</a><br/>
+       selection for select objects
+    </p>
+    <h3>MAXScript Introduction</h3>
+    <p>
+       <a href="https://help.autodesk.com/view/3DSMAX/2018/ENU/?guid=__files_GUID_F039181A_C072_4469_A329_AE60FF7535E7_htm">说明链接</a><br/>
+    </p>
+
+    <h3>MAXScript Listener</h3>
+    <p>
+       <a href="https://knowledge.autodesk.com/support/3ds-max/getting-started/caas/CloudHelp/cloudhelp/2021/ENU/3DSMax-Basics/files/GUID-C8019A8A-207F-48A0-985E-18D47FAD8F36-htm.html">说明链接</a><br/>
+    </p>
+    <h3>Macro Recorder</h3>
+    <p>
+       <a href="https://knowledge.autodesk.com/support/3ds-max/getting-started/caas/CloudHelp/cloudhelp/2021/ENU/3DSMax-Basics/files/GUID-7F0698EB-236E-48EF-96B3-4DF011DF86B0-htm.html">说明链接</a><br/>
+    </p>
+
+    <h2>技术笔记</h2>
+    <h3>MAXScript 多个物体同时应用ProOptimizer</h3>
+    <p>
+    将选择作为数组，
+    取其中1个应用即可
+    </p>
+
+    <h3>ProOptimize最大选择数量</h3>
+    <p>
+    建议在100个物体以内，超过100个物体容易崩溃
+    </p>
+
+    <h3>清除选择</h3>
+    <p>clearSelection()</p>
+
+    <h3>group的问题</h3>
+    <p>
+    一般情况下不要使用group，否则Maxscript使用时容易出问题。<br/>
+    建议将同类的物件，改成有规律的名字即可。<br/>
+    或者先ungroup，再group<br/>
+   <a href="http://www.andybellart.co.uk/blog/miscellaneous/a-maxscript-perspective-groups-in-3ds-max">说明链接</a><br/>
+   A Group in 3ds Max is an “invisible” dummy object that has been created to become the parent of the objects in the group.<br/>
+
+The name of the group comes from the group’s head node (the dummy object) and If you open up a schematic view (Graph Editors > New Schematic View… or Saved Schematic Views if you already have one), then you should be able to visually see the hierarchy
+    </p>
+
+    <h3>ProOptimize故障</h3>
+    <p>
+    选择group时使用ProOptimize可能会有故障，
+    要选择group里面的实际物体
+    </p>
+
+    <h3>MAXScript 注释</h3>
+    <p>
+    注释符号是:<br/>
+    --<br/>
+    </p>
+
+    <h3>材质应用</h3>
+    <p>
+       <a href="https://knowledge.autodesk.com/support/3ds-max/getting-started/caas/CloudHelp/cloudhelp/2015/ENU/3DSMax-Tutorial/files/GUID-5BA72891-97EC-4688-8B50-9FACCF1FF040-htm.html">说明链接</a><br/>
+       选择材质->调参数->将材质应用到选择的object<br/>
+    </p>
+    <h3>cap holes</h3>
+    <p>
+       <a href="https://knowledge.autodesk.com/support/3ds-max/learn-explore/caas/CloudHelp/cloudhelp/2019/ENU/3DSMax-Modifiers/files/GUID-2E29CF46-E31C-44E3-BD3D-747B92C17283-htm.html">说明链接</a><br/>
+         封口，通常可以大幅降低多边形数量<br/>
+    </p>
+    <h3>import iam文件</h3>
+    <p>
+        选择 reference duplicate parts，
+        会将相同零件关联，
+        输出文件的尺寸会小很多，
+        但处理时有点复杂，
+        要注意一下。
+        不选 reference duplicate parts，
+        文件体积较大，
+        但操作方便一些。
+    </p>
+    <h3>design模式和classic模式之间的切换</h3>
+    <p>
+       <a href="https://knowledge.autodesk.com/support/3ds-max/troubleshooting/caas/sfdcarticles/sfdcarticles/How-to-change-between-Classic-and-Design-mode-in-3ds-Max.html">程序内菜单</a><br/>
+       方法：Customize > Custom UI and Defaults Switcher. 
+       <a href="https://area.autodesk.com/blogs/max-station/n277-how-to-change-between-classic-and-design/">修改快捷方式的启动参数</a><br/>
+       方法：-df重新选择模式
+       -dfc用classic模式启动
+       -dfd用design模式启动
+    </p>
+    <h3>导入inventor模型，导出glb或glbf</h3>
+    <p>
+        使用babylon插件：<br/>
+       <a href="https://docs.microsoft.com/en-us/dynamics365/mixed-reality/product-visualize/3ds-max">教程链接</a><br/>
+       <a href="https://doc.babylonjs.com/extensions/Exporters/3DSMax">babylon插件资料</a><br/>
+       babylon安装：<br/>
+       <a href="https://doc.babylonjs.com/extensions/Exporters/3DSMax#installing-the-installer-so-meta">安装文件安装</a><br/>
+       <a href="https://doc.babylonjs.com/extensions/Exporters/3DSMax#manual-install">手动安装</a><br/>
+    </p>
+
+</body>
+</html>
+    
